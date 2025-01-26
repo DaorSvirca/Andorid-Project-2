@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:textSize="24sp"
             android:textStyle="bold"
-            tools:text="Recipe Name" />
+            tools:text="Music Name" />
 
         <TextView
             android:id="@+id/musicBody"

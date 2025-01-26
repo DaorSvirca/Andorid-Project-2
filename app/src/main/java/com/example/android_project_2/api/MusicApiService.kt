@@ -8,6 +8,6 @@ import retrofit2.http.Query
 
 interface MusicApiService {
 
-    @GET("musics")
+    @GET("posts?limit=10")
     fun getMusics(@Query("limit") limit: Int) : retrofit2.Call<MusicResponse>
 }

@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.security.Provider.Service
 
 object Helpers {
-        private const val BASE_URL = "https://dummyjson.com/posts"
+        private const val BASE_URL = "https://dummyjson.com/"
 
         val api : MusicApiService by lazy {
                 Retrofit.Builder()
