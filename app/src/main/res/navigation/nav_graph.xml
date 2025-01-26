@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_music_list">
+
+    <fragment
+        android:id="@+id/navigation_music_list"
+        android:name="com.cacttus.navigationdrawergr_2.fragments.MusicListFragment"
+        android:label="Music" >
+        <action
+            android:id="@+id/action_navigation_music_list_to_navigation_favorites"
+            app:destination="@id/navigation_favorites" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_favorites"
+        android:name="com.cacttus.navigationdrawergr_2.fragments.FavoritesFragment"
+        android:label="Favorites" >
+        <action
+            android:id="@+id/action_navigation_favorites_to_navigation_search"
+            app:destination="@id/navigation_search" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.cacttus.navigationdrawergr_2.fragments.SearchFragment"
+        android:label="Search" />
+
+
+</navigation>
