@@ -8,5 +8,5 @@ data class Music(
 
 
 data class MusicResponse(
-    val musics : List<Music>
+    val posts : List<Music>
 )

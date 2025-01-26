@@ -11,11 +11,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.cacttus.navigationdrawergr_3.R
 import com.cacttus.navigationdrawergr_3.databinding.ActivityMainBinding
-import com.example.android_project_2.model.MusicResponse
 import com.example.android_project_2.network.RetrofitInstance
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,22 +38,19 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        fetchRecipes()
+        fetchPosts()
     }
 
-    private fun fetchRecipes() {
+    private fun fetchPosts() {
         lifecycleScope.launch(Dispatchers.IO) {
             try {
-                val response: Response<MusicResponse> =
-                    RetrofitInstance.api.getMusics(limit = 10).execute()
-
+                val response = RetrofitInstance.api.getMusics(limit = 10).execute()
                 if (response.isSuccessful) {
-                    val musics = response.body()?.musics ?: emptyList()
-                    // Call the updateRecipes method on the singleton
+                    val musics = response.body()?.posts ?: emptyList()
                     MusicRepository.getInstance().updateMusics(musics)
                     Log.d("API", "Fetched ${musics.size} musics")
                 } else {
-                    Log.e("API", "API error: ${response.code()}")
+                    Log.e("API", "API error: ${response.code()} - ${response.errorBody()?.string()}")
                 }
             } catch (e: Exception) {
                 Log.e("API", "Fetch failed: ${e.message}")
