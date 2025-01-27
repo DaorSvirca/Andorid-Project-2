@@ -29,12 +29,11 @@ class FavoritesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Initialize ViewModel with factory
         val factory = FavoritesViewModelFactory()
         viewModel = ViewModelProvider(this, factory).get(FavoritesViewModel::class.java)
 
         adapter = MusicAdapter(emptyList()) { music ->
-            // Handle recipe click (navigate to detail)
+
         }
 
         binding.favoritesRecyclerView.layoutManager = LinearLayoutManager(requireContext())

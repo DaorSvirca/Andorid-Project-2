@@ -46,6 +46,6 @@ class MusicListFragment : Fragment() {
             adapter.updateMusics(musics)
         }
 
-        viewModel.loadRecipes()
+        viewModel.loadMusics()
     }
 }

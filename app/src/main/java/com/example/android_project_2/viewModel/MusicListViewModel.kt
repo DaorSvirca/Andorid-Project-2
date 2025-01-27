@@ -10,7 +10,7 @@ class MusicListViewModel(private val repository: MusicRepository) : ViewModel() 
     private val _musics = MutableLiveData<List<Music>>()
     val musics: LiveData<List<Music>> get() = _musics
 
-    fun loadRecipes() {
+    fun loadMusics() {
         _musics.postValue(repository.musics)
     }
 }
